@@ -1,0 +1,17 @@
+Things to do:
+1.) Show available trains on search
+2.) Purchase a booking
+3.) Log out
+4.) Connect to API
+
+To Do
+Report: Project Management and mobile sections
+Presentation: Mobile and bring all together
+
+Newton Soft JSon. Deserialisation the array into the object.
+Hash the password so it matches the password on the database.
+
+To Do
+1.) What are the shortcomings of ConnectedRail?
+    mobile app section of Report
+2.) Finish app

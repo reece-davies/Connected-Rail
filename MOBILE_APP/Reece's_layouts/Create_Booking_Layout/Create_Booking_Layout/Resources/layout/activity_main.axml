@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="From:"
+        android:layout_marginTop="5.0dp"
+        android:layout_marginLeft="5.0dp" />
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/locations"
+        android:id="@+id/spinner_locationOne"
+        android:layout_marginTop="5.0dp"
+        android:layout_marginLeft="60.0dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="To:"
+        android:layout_marginTop="45.0dp"
+        android:layout_marginLeft="5.0dp" />
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/locations"
+        android:id="@+id/spinner_locationTwo"
+        android:layout_marginTop="45.0dp"
+        android:layout_marginLeft="60.0dp" />
+    <CheckBox
+        android:text="Single"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="85.0dp"
+        android:id="@+id/checkBox_single" />
+    <CheckBox
+        android:text="Return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80.0dp"
+        android:layout_marginTop="85.0dp"
+        android:id="@+id/checkBox_return" />
+    <CheckBox
+        android:text="Open Return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="170.0dp"
+        android:layout_marginTop="85.0dp"
+        android:id="@+id/checkBox_singleReturn" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Out:"
+        android:layout_marginTop="135.0dp"
+        android:layout_marginLeft="5.0dp" />
+    <Spinner
+        android:layout_width="100.0dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/times"
+        android:id="@+id/spinner_outbound"
+        android:layout_marginTop="135.0dp"
+        android:layout_marginLeft="60.0dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ret:"
+        android:layout_marginTop="135.0dp"
+        android:layout_marginLeft="185.0dp" />
+    <Spinner
+        android:layout_width="100.0dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/times"
+        android:id="@+id/spinner_return"
+        android:layout_marginTop="135.0dp"
+        android:layout_marginLeft="240.0dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adult:"
+        android:layout_marginTop="180.0dp"
+        android:layout_marginLeft="5.0dp" />
+    <Spinner
+        android:layout_width="100.0dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/numbers"
+        android:id="@+id/spinner_adults"
+        android:layout_marginTop="180.0dp"
+        android:layout_marginLeft="60.0dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Child:"
+        android:layout_marginTop="180.0dp"
+        android:layout_marginLeft="185.0dp" />
+    <Spinner
+        android:layout_width="100.0dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/numbers"
+        android:id="@+id/spinner_children"
+        android:layout_marginTop="180.0dp"
+        android:layout_marginLeft="240.0dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Railcards:"
+        android:layout_marginTop="225.0dp"
+        android:layout_marginLeft="5.0dp" />
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/railcards"
+        android:id="@+id/spinner_railcards"
+        android:layout_marginTop="225.0dp"
+        android:layout_marginLeft="90.0dp" />
+    <Button
+        android:text="Search Trains"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="280.0dp"
+        android:id="@+id/button_searchTrains"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:background="#00BFFF"
+        android:layout_marginRight="10sp"
+        android:layout_marginLeft="10sp" />
+<!--
+  <android.support.design.widget.BottomNavigationView
+    android:id="@+id/bottom_navigation"
+    android:layout_width="match_parent"
+    androidLlayout_height="match_parent"
+    android:layout_alignParentBottom="true"
+    app:itemBackground="@color/colorPrimary"
+    app:menu="@menu/bottom_navbar"
+    />
+    -->
+    <Button
+        android:text="Make Booking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500.0dp"
+        android:layout_marginLeft="5.0dp"
+        android:id="@+id/button_makeBooking"
+        android:textColor="#ffffff"
+        android:background="#00BFFF" />
+    <Button
+        android:text="View Tickets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500.0dp"
+        android:layout_marginLeft="125.0dp"
+        android:id="@+id/button_viewTickets"
+        android:textColor="#ffffff"
+        android:background="#00BFFF" />
+    <Button
+        android:text="View Expired Tickets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500.0dp"
+        android:layout_marginLeft="230.0dp"
+        android:id="@+id/button_viewTickets"
+        android:textColor="#ffffff"
+        android:background="#00BFFF" />
+</RelativeLayout>

@@ -1,0 +1,6 @@
+Main test user for mobile application
+
+Name: Jim Bob
+Email: jimbob@gmail.com
+Password: test
+Number of bookings: 2 active & 2 expired

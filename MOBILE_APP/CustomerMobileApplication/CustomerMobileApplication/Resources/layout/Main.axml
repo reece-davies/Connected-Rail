@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+<!-- logo -->
+    <ImageView
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_width="350.0dp"
+        android:layout_height="150.0dp"
+        android:id="@+id/ivLoginLogo"
+        android:layout_marginBottom="10sp"
+        android:layout_marginTop="20sp" />
+<!-- title of view -->
+<!--<TextView
+            android:id="@+id/tvLogin"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"/>-->
+<!-- email field -->
+    <EditText
+        android:inputType="textEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etInputEmail"
+        android:hint="Email Address"
+        android:textSize="18sp"
+        android:padding="20sp"
+        android:layout_margin="5sp" />
+<!-- password field -->
+    <EditText
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etInputPassword"
+        android:hint="Password"
+        android:textSize="18sp"
+        android:password="true"
+        android:padding="20sp"
+        android:layout_margin="5sp" />
+<!-- forgotten password? -->
+    <TextView
+        android:id="@+id/tvForgottenPassword"
+        android:paddingLeft="20sp"
+        android:layout_marginLeft="5sp"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Forgot password?" />
+<!-- login button -->
+    <Button
+        android:text="LOGIN"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:background="#40E0D0"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:id="@+id/btnLogin"
+		android:clickable="true"
+        android:layout_marginTop="30sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp" />
+<!-- register? -->
+    <TextView
+        android:id="@+id/tvRegister"
+        android:paddingTop="20sp"
+        android:paddingLeft="20sp"
+        android:paddingRight="20sp"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Don't have an account?" />
+</LinearLayout>

@@ -1,0 +1,560 @@
+/* GENERAL */
+
+html, body {
+    background-color: #F5F5F5;
+}
+
+.wrapper {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* END OF GENERAL */
+
+/* NAV BAR STYLES */
+
+#nav-logo {
+    height: 30px;
+    width: 150px;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.nav-background {
+    background: grey;
+    background: -webkit-linear-gradient(left, teal, grey);
+    background: -o-linear-gradient(left, teal, grey);
+    background: -moz-linear-gradient(left, teal, grey);
+    background: linear-gradient(left, teal, grey);
+}
+
+.nav-theme a {
+    color: #ffffff;
+
+    font-family: 'Raleway', arial;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.nav-theme a:hover {
+    color: #E0E0E0;
+}
+
+/* END OF NAV BAR STYLES */
+
+/* DASHBOARD */
+
+.map-container, .dashboard-content-section {
+    border-radius: 15px;
+
+    background-color: white;
+
+    width: 100%;
+
+    margin: 13px auto;
+
+    -webkit-box-shadow: 0 4px 18px white;
+    -moz-box-shadow: 0 4px 18px white;
+    box-shadow: 0 4px 18px white;
+
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.map-container {
+    height: 80.5vh;
+    overflow: hidden;
+}
+
+.staff-container {
+    height: 10vh;
+    overflow: hidden;
+}
+
+.dashboard-content-section {
+    height: 39.5vh;
+}
+
+.slightly-bigger-section {
+    height: 50vh !important;
+}
+
+.dashboard-section-header {
+    width: 100%;
+
+    background: grey;
+    background: -webkit-linear-gradient(left, teal, grey);
+    background: -o-linear-gradient(left, teal, grey);
+    background: -moz-linear-gradient(left, teal, grey);
+    background: linear-gradient(left, teal, grey);
+
+    overflow-x: hidden;
+
+    overflow-y: scroll;
+}
+
+.ellipsis-settings, .search-settings, .add-settings {
+    font-size: 24px;
+
+    color: #ffffff;
+
+    padding: 10px;
+
+    cursor: pointer;
+}
+
+.header-with-icon {
+    padding: 10px 0px 10px 0px;
+
+    font-size: 24px;
+
+    color: #ffffff;
+}
+
+.header-with-icon span {
+    color: #ffffff;
+
+    font-family: 'Raleway', arial;
+
+    padding: 10px;
+}
+
+#append-arrivals-here,
+#append-departures-here,
+#append-staff-here,
+#append-journey-staff-here,
+#append-journeys-here,
+#append-journey-summary-here,
+#append-companies-here,
+#append-passengers-here,
+#append-bookings-here,
+#append-trains-here,
+#append-carriages-here {
+    overflow-y: scroll;
+    height: 100%;
+}
+
+/*#append-arrivals-here::-webkit-scrollbar,*/
+/*#append-departures-here::-webkit-scrollbar,*/
+/*#append-staff-here::-webkit-scrollbar,*/
+/*#append-journey-staff-here::-webkit-scrollbar,*/
+/*#append-journeys-here::-webkit-scrollbar,*/
+/*#append-journey-summary-here::-webkit-scrollbar,*/
+/*#append-companies-here::-webkit-scrollbar,*/
+/*#append-passengers-here::-webkit-scrollbar {*/
+    /*display: none;*/
+/*}*/
+
+.content-divider {
+    height: 2px;
+    width: 100%;
+    border-radius: 25px;
+
+    /*background: grey;
+    background: -webkit-linear-gradient(left, teal, grey);
+    background: -o-linear-gradient(left, teal, grey);
+    background: -moz-linear-gradient(left, teal, grey);
+    background: linear-gradient(left, teal, grey);*/
+    background: darkgrey;
+
+    /*-webkit-box-shadow: 0 4px 18px darkgrey;
+    -moz-box-shadow: 0 4px 18px darkgrey;
+    box-shadow: 0 4px 18px darkgrey;*/
+
+    margin: 0px auto;
+}
+
+.dashboard-information-breakdown {
+    font-family: 'Raleway', arial;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    padding-top: 5px;
+}
+
+.content-left {
+    float: left !important;
+}
+
+.content-right {
+    float: right !important;
+}
+
+.staff-image-wrapper,
+.company-image-wrapper {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.staff-image,
+.company-image {
+    height: 50px;
+    width: 50px;
+
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+
+    box-shadow: 0px 0px 10px darkgrey;
+}
+
+.staff-information,
+.journey-information,
+.company-information,
+.location-information,
+.train-information,
+.carriage-information,
+.journey-information-larger {
+    font-family: 'Raleway', arial;
+    font-size: 16px;
+
+    color: #333;
+
+    text-align: left;
+
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    margin-top: 14px;
+}
+
+.journey-information {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    font-size: 12px !important;
+}
+
+.staff-role,
+.staff-status,
+.depart-time,
+.journey-status
+{
+    float: right;
+}
+
+.staff-member,
+.journey-staff-member,
+.journey,
+.company,
+.location,
+.train,
+.carriage,
+.journey {
+    cursor: pointer;
+
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.staff-member:hover,
+.journey-staff-member:hover,
+.journey:not(.selected-journey):hover,
+.company:hover,
+.location:hover,
+.train:hover,
+.carriage:hover {
+    background-color: #F5F5F5;
+}
+
+.staff-member p:hover,
+.journey-staff-member p:hover,
+.journey p span:hover,
+.company p:hover,
+.location p:hover,
+.train p:hover,
+.carriage p:hover,
+.journey p:hover{
+    text-decoration: underline;
+}
+
+.selected-journey {
+    background-color: #E0E0E0;
+    font-weight: bolder;
+}
+
+.loader {
+    border: 6px solid teal;
+    border-top: 6px solid white;
+    border-bottom: 6px solid white;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 1.5s ease-out infinite;
+
+    margin: 0 auto;
+
+    position: relative;
+    top: 31%;
+}
+
+.no-staff-assigned {
+    font-family: 'Raleway', arial;
+    font-size: 20px;
+
+    color: #333;
+
+    text-align: center;
+
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    line-height: 39.5vh;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.remove-company-icon,
+.remove-location-icon,
+.remove-train-icon,
+.remove-carriage-icon,
+.remove-journey-icon {
+    font-size: 20px;
+    float: right !important;
+    color: #333;
+
+    position: relative;
+    line-height: 55px;
+}
+
+@media screen and (max-width: 576px) {
+    .staff-image-wrapper {
+        text-align: center;
+    }
+
+    .staff-role,
+    .staff-status,
+    .depart-time,
+    .journey-status,
+    .remove-location-icon,
+    .remove-train-icon,
+    .remove-carriage-icon,
+    .remove-journey-icon {
+        float: unset;
+        text-align: center;
+    }
+
+    .staff-information,
+    .journey-information,
+    .company-information,
+    .location-information,
+    .train-information,
+    .carriage-information,
+    .journey-information {
+        font-family: 'Raleway', arial;
+        font-size: 16px;
+
+        color: #333;
+
+        text-align: center;
+
+        margin-top: 5px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .content-left {
+        float: unset !important;
+    }
+
+    .content-right {
+        float: unset !important;
+    }
+}
+
+/* END OF DASHBOARD */
+
+/* FOOTER STYLES */
+
+.footer-container {
+    background: grey;
+    background: -webkit-linear-gradient(left, teal, grey);
+    background: -o-linear-gradient(left, teal, grey);
+    background: -moz-linear-gradient(left, teal, grey);
+    background: linear-gradient(left, teal, grey);
+}
+
+/* END OF FOOTER STYLES */
+
+/* MODAL STYLES */
+
+.modal-header {
+    background: grey !important;
+    background: -webkit-linear-gradient(left, teal, grey) !important;
+    background: -o-linear-gradient(left, teal, grey) !important;
+    background: -moz-linear-gradient(left, teal, grey) !important;
+    background: linear-gradient(left, teal, grey) !important;
+}
+
+.modal-footer {
+    background: grey !important;
+    background: -webkit-linear-gradient(left, teal, grey) !important;
+    background: -o-linear-gradient(left, teal, grey) !important;
+    background: -moz-linear-gradient(left, teal, grey) !important;
+    background: linear-gradient(left, teal, grey) !important;
+}
+
+.modal-title-override {
+    color: white;
+    font-family: 'Raleway', arial;
+
+    line-height: 95px;
+}
+
+.modal-sub-header {
+    color: #333;
+    font-family: 'Raleway', arial;
+
+    font-size: 20px;
+}
+
+.modal-staff-image-wrapper {
+    margin: 10px;
+}
+
+.modal-staff-image {
+    height: 75px;
+    width: 75px;
+
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+
+    box-shadow: 0px 0px 10px #333;
+}
+
+.modal-field {
+    width: 100%;
+
+    padding: 5px;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    font-family: "Raleway", arial;
+
+    border-radius: 15px;
+
+    outline-color: transparent;
+    outline-style: none;
+
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: lightgray;
+
+    -webkit-transition: all ease 0.25s;
+    transition: all ease 0.25s;
+}
+
+#select-gender, #select-role {
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    color: #333;
+
+    font-family: 'Raleway', arial;
+}
+
+.modal-btn {
+    width: 100%;
+    height: 35px;
+
+    background: grey !important;
+    background: -webkit-linear-gradient(left, teal, grey) !important;
+    background: -o-linear-gradient(left, teal, grey) !important;
+    background: -moz-linear-gradient(left, teal, grey) !important;
+    background: linear-gradient(left, teal, grey) !important;
+
+    border-radius: 15px;
+
+    color: white;
+
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    font-family: 'Raleway', arial;
+
+    cursor: pointer;
+}
+
+.valid {
+    border-color: rgba(75,181,67, 0.5) !important;
+}
+
+.invalid {
+    border-color: rgba(204,0,0, 0.5) !important;
+}
+
+.swal2-popup {
+    font-family: 'Raleway', arial !important;
+}
+
+.modal-title {
+    color: white;
+    font-family: 'Raleway', arial;
+}
+
+#create-select-gender, #create-select-role {
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    color: #333;
+
+    font-family: 'Raleway', arial;
+}
+
+.create-modal-field {
+    width: 100%;
+
+    padding: 5px;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    font-family: "Raleway", arial;
+
+    border-radius: 15px;
+
+    outline-color: transparent;
+    outline-style: none;
+
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: lightgray;
+
+    -webkit-transition: all ease 0.25s;
+    transition: all ease 0.25s;
+}
+
+.create-button {
+    background: white !important;
+
+    font-family: "Raleway", arial !important;
+    color: #333;
+
+    transition: background-color 1s linear;
+}
+
+.create-button:hover {
+
+    background: grey !important;
+    background: -webkit-linear-gradient(left, teal, grey) !important;
+    background: -o-linear-gradient(left, teal, grey) !important;
+    background: -moz-linear-gradient(left, teal, grey) !important;
+    background: linear-gradient(left, teal, grey) !important;
+
+    border: 2px solid white;
+
+    color: white;
+}
+
+/* END OF MODAL STYLES */

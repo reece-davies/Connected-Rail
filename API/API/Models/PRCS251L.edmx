@@ -1,0 +1,791 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="12.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ADMINISTRATORS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="EMAIL_ADDRESS" Type="varchar2" MaxLength="255" />
+          <Property Name="PASSWORD" Type="varchar2" MaxLength="999" Nullable="false" />
+          <Property Name="FIRST_NAME" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="LAST_NAME" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="DATE_OF_BIRTH" Type="date" Nullable="false" />
+          <Property Name="GENDER" Type="varchar2" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="API_TOKENS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="TOKEN_VALUE" Type="varchar2" MaxLength="99" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BOOKINGS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="PASSENGER_ID" Type="number" Precision="10" Scale="0" />
+          <Property Name="JOURNEY_ID" Type="number" Precision="10" Scale="0" />
+          <Property Name="BOOKING_TYPE" Type="varchar2" MaxLength="255" />
+          <Property Name="SEAT_NUMBER" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="SEAT_PREFERENCE" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="DEPARTURE_DATE_TIME" Type="date" Nullable="false" />
+          <Property Name="DEPARTURE_PLATFORM" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ARRIVAL_DATE_TIME" Type="date" Nullable="false" />
+          <Property Name="ARRIVAL_PLATFORM" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CARRIAGES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="CARRIAGE_CLASSIFICATION" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="FREIGHT_COMPANY_ID" Type="number" Precision="10" Scale="0" />
+          <Property Name="TOTAL_NUMBER_OF_SEATS" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NUMBER_OF_AVAILABLE_SEATS" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LOCATIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="CITY_NAME" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="TRAIN_STATION_NAME" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="LATITUDE" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="LONGITUDE" Type="varchar2" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PASSENGERS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="EMAIL_ADDRESS" Type="varchar2" MaxLength="255" />
+          <Property Name="PASSWORD" Type="varchar2" MaxLength="999" Nullable="false" />
+          <Property Name="FIRST_NAME" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="LAST_NAME" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="DATE_OF_BIRTH" Type="date" Nullable="false" />
+          <Property Name="GENDER" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="PHOTO" Type="blob" />
+        </EntityType>
+        <EntityType Name="STAFF">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="EMAIL_ADDRESS" Type="varchar2" MaxLength="255" />
+          <Property Name="PASSWORD" Type="varchar2" MaxLength="999" Nullable="false" />
+          <Property Name="FIRST_NAME" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="LAST_NAME" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="DATE_OF_BIRTH" Type="date" Nullable="false" />
+          <Property Name="GENDER" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="STAFF_ROLE" Type="varchar2" MaxLength="255" />
+          <Property Name="PHOTO" Type="varchar2" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="TRAIN_CARRIAGES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="CARRIAGE_ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="TRAIN_ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TRAIN_COMPANIES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="COMPANY_NAME" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="LOGO" Type="varchar2" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="TRAIN_JOURNEY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="JOURNEY_COST" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ARRIVAL_LOCATION_ID" Type="number" Precision="10" Scale="0" />
+          <Property Name="DEPARTURE_LOCATION_ID" Type="number" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityType Name="TRAIN_JOURNEY_STAFF">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="STAFF_ID" Type="number" Precision="10" Scale="0" />
+          <Property Name="JOURNEY_ID" Type="number" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityType Name="TRAINS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="TRAIN_COMPANY_ID" Type="number" Precision="10" Scale="0" />
+          <Property Name="TRAIN_TYPE" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="CARGO_TYPE" Type="varchar2" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="BOOKINGS_JOURNEY_ID_FK">
+          <End Role="TRAIN_JOURNEY" Type="Self.TRAIN_JOURNEY" Multiplicity="0..1" />
+          <End Role="BOOKINGS" Type="Self.BOOKINGS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRAIN_JOURNEY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BOOKINGS">
+              <PropertyRef Name="JOURNEY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BOOKINGS_PASSENGER_ID_FK">
+          <End Role="PASSENGERS" Type="Self.PASSENGERS" Multiplicity="0..1" />
+          <End Role="BOOKINGS" Type="Self.BOOKINGS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PASSENGERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BOOKINGS">
+              <PropertyRef Name="PASSENGER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CARRIAGE_LINK_ID_FK">
+          <End Role="CARRIAGES" Type="Self.CARRIAGES" Multiplicity="1" />
+          <End Role="TRAIN_CARRIAGES" Type="Self.TRAIN_CARRIAGES" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CARRIAGES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TRAIN_CARRIAGES">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FREIGHT_COMPANY_ID_FK">
+          <End Role="TRAIN_COMPANIES" Type="Self.TRAIN_COMPANIES" Multiplicity="0..1" />
+          <End Role="CARRIAGES" Type="Self.CARRIAGES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRAIN_COMPANIES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CARRIAGES">
+              <PropertyRef Name="FREIGHT_COMPANY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="JOURNEY_ID_FK">
+          <End Role="TRAIN_JOURNEY" Type="Self.TRAIN_JOURNEY" Multiplicity="0..1" />
+          <End Role="TRAIN_JOURNEY_STAFF" Type="Self.TRAIN_JOURNEY_STAFF" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRAIN_JOURNEY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TRAIN_JOURNEY_STAFF">
+              <PropertyRef Name="JOURNEY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STAFF_ID_FK">
+          <End Role="STAFF" Type="Self.STAFF" Multiplicity="0..1" />
+          <End Role="TRAIN_JOURNEY_STAFF" Type="Self.TRAIN_JOURNEY_STAFF" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STAFF">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TRAIN_JOURNEY_STAFF">
+              <PropertyRef Name="STAFF_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TRAIN_COMPANY_ID_FK">
+          <End Role="TRAIN_COMPANIES" Type="Self.TRAIN_COMPANIES" Multiplicity="0..1" />
+          <End Role="TRAINS" Type="Self.TRAINS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRAIN_COMPANIES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TRAINS">
+              <PropertyRef Name="TRAIN_COMPANY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TRAIN_JOURNEY_ARRIVAL_LOCATION_ID_FK">
+          <End Role="PASSENGERS" Type="Self.PASSENGERS" Multiplicity="0..1" />
+          <End Role="TRAIN_JOURNEY" Type="Self.TRAIN_JOURNEY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PASSENGERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TRAIN_JOURNEY">
+              <PropertyRef Name="ARRIVAL_LOCATION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TRAIN_JOURNEY_DEPARTURE_LOCATION_ID_FK">
+          <End Role="LOCATIONS" Type="Self.LOCATIONS" Multiplicity="0..1" />
+          <End Role="TRAIN_JOURNEY" Type="Self.TRAIN_JOURNEY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOCATIONS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TRAIN_JOURNEY">
+              <PropertyRef Name="DEPARTURE_LOCATION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TRAIN_LINK_ID_FK">
+          <End Role="TRAINS" Type="Self.TRAINS" Multiplicity="1" />
+          <End Role="TRAIN_CARRIAGES" Type="Self.TRAIN_CARRIAGES" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TRAINS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TRAIN_CARRIAGES">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="ADMINISTRATORS" EntityType="Self.ADMINISTRATORS" Schema="PRCS251L" store:Type="Tables" />
+          <EntitySet Name="API_TOKENS" EntityType="Self.API_TOKENS" Schema="PRCS251L" store:Type="Tables" />
+          <EntitySet Name="BOOKINGS" EntityType="Self.BOOKINGS" Schema="PRCS251L" store:Type="Tables" />
+          <EntitySet Name="CARRIAGES" EntityType="Self.CARRIAGES" Schema="PRCS251L" store:Type="Tables" />
+          <EntitySet Name="LOCATIONS" EntityType="Self.LOCATIONS" Schema="PRCS251L" store:Type="Tables" />
+          <EntitySet Name="PASSENGERS" EntityType="Self.PASSENGERS" Schema="PRCS251L" store:Type="Tables" />
+          <EntitySet Name="STAFF" EntityType="Self.STAFF" Schema="PRCS251L" store:Type="Tables" />
+          <EntitySet Name="TRAIN_CARRIAGES" EntityType="Self.TRAIN_CARRIAGES" Schema="PRCS251L" store:Type="Tables" />
+          <EntitySet Name="TRAIN_COMPANIES" EntityType="Self.TRAIN_COMPANIES" Schema="PRCS251L" store:Type="Tables" />
+          <EntitySet Name="TRAIN_JOURNEY" EntityType="Self.TRAIN_JOURNEY" Schema="PRCS251L" store:Type="Tables" />
+          <EntitySet Name="TRAIN_JOURNEY_STAFF" EntityType="Self.TRAIN_JOURNEY_STAFF" Schema="PRCS251L" store:Type="Tables" />
+          <EntitySet Name="TRAINS" EntityType="Self.TRAINS" Schema="PRCS251L" store:Type="Tables" />
+          <AssociationSet Name="BOOKINGS_JOURNEY_ID_FK" Association="Self.BOOKINGS_JOURNEY_ID_FK">
+            <End Role="TRAIN_JOURNEY" EntitySet="TRAIN_JOURNEY" />
+            <End Role="BOOKINGS" EntitySet="BOOKINGS" />
+          </AssociationSet>
+          <AssociationSet Name="BOOKINGS_PASSENGER_ID_FK" Association="Self.BOOKINGS_PASSENGER_ID_FK">
+            <End Role="PASSENGERS" EntitySet="PASSENGERS" />
+            <End Role="BOOKINGS" EntitySet="BOOKINGS" />
+          </AssociationSet>
+          <AssociationSet Name="CARRIAGE_LINK_ID_FK" Association="Self.CARRIAGE_LINK_ID_FK">
+            <End Role="CARRIAGES" EntitySet="CARRIAGES" />
+            <End Role="TRAIN_CARRIAGES" EntitySet="TRAIN_CARRIAGES" />
+          </AssociationSet>
+          <AssociationSet Name="FREIGHT_COMPANY_ID_FK" Association="Self.FREIGHT_COMPANY_ID_FK">
+            <End Role="TRAIN_COMPANIES" EntitySet="TRAIN_COMPANIES" />
+            <End Role="CARRIAGES" EntitySet="CARRIAGES" />
+          </AssociationSet>
+          <AssociationSet Name="JOURNEY_ID_FK" Association="Self.JOURNEY_ID_FK">
+            <End Role="TRAIN_JOURNEY" EntitySet="TRAIN_JOURNEY" />
+            <End Role="TRAIN_JOURNEY_STAFF" EntitySet="TRAIN_JOURNEY_STAFF" />
+          </AssociationSet>
+          <AssociationSet Name="STAFF_ID_FK" Association="Self.STAFF_ID_FK">
+            <End Role="STAFF" EntitySet="STAFF" />
+            <End Role="TRAIN_JOURNEY_STAFF" EntitySet="TRAIN_JOURNEY_STAFF" />
+          </AssociationSet>
+          <AssociationSet Name="TRAIN_COMPANY_ID_FK" Association="Self.TRAIN_COMPANY_ID_FK">
+            <End Role="TRAIN_COMPANIES" EntitySet="TRAIN_COMPANIES" />
+            <End Role="TRAINS" EntitySet="TRAINS" />
+          </AssociationSet>
+          <AssociationSet Name="TRAIN_JOURNEY_ARRIVAL_LOCATION_ID_FK" Association="Self.TRAIN_JOURNEY_ARRIVAL_LOCATION_ID_FK">
+            <End Role="PASSENGERS" EntitySet="PASSENGERS" />
+            <End Role="TRAIN_JOURNEY" EntitySet="TRAIN_JOURNEY" />
+          </AssociationSet>
+          <AssociationSet Name="TRAIN_JOURNEY_DEPARTURE_LOCATION_ID_FK" Association="Self.TRAIN_JOURNEY_DEPARTURE_LOCATION_ID_FK">
+            <End Role="LOCATIONS" EntitySet="LOCATIONS" />
+            <End Role="TRAIN_JOURNEY" EntitySet="TRAIN_JOURNEY" />
+          </AssociationSet>
+          <AssociationSet Name="TRAIN_LINK_ID_FK" Association="Self.TRAIN_LINK_ID_FK">
+            <End Role="TRAINS" EntitySet="TRAINS" />
+            <End Role="TRAIN_CARRIAGES" EntitySet="TRAIN_CARRIAGES" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ADMINISTRATOR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="EMAIL_ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="999" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DATE_OF_BIRTH" Type="DateTime" Nullable="false" />
+          <Property Name="GENDER" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="API_TOKENS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TOKEN_VALUE" Type="String" MaxLength="99" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BOOKING">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="PASSENGER_ID" Type="Int32" />
+          <Property Name="JOURNEY_ID" Type="Int32" />
+          <Property Name="BOOKING_TYPE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SEAT_NUMBER" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SEAT_PREFERENCE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DEPARTURE_DATE_TIME" Type="DateTime" Nullable="false" />
+          <Property Name="DEPARTURE_PLATFORM" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ARRIVAL_DATE_TIME" Type="DateTime" Nullable="false" />
+          <Property Name="ARRIVAL_PLATFORM" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="TRAIN_JOURNEY" Relationship="Self.BOOKINGS_JOURNEY_ID_FK" FromRole="BOOKINGS" ToRole="TRAIN_JOURNEY" />
+          <NavigationProperty Name="PASSENGER" Relationship="Self.BOOKINGS_PASSENGER_ID_FK" FromRole="BOOKINGS" ToRole="PASSENGERS" />
+        </EntityType>
+        <EntityType Name="CARRIAGE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="CARRIAGE_CLASSIFICATION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FREIGHT_COMPANY_ID" Type="Int32" />
+          <Property Name="TOTAL_NUMBER_OF_SEATS" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NUMBER_OF_AVAILABLE_SEATS" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="TRAIN_CARRIAGES" Relationship="Self.CARRIAGE_LINK_ID_FK" FromRole="CARRIAGES" ToRole="TRAIN_CARRIAGES" />
+          <NavigationProperty Name="TRAIN_COMPANIES" Relationship="Self.FREIGHT_COMPANY_ID_FK" FromRole="CARRIAGES" ToRole="TRAIN_COMPANIES" />
+        </EntityType>
+        <EntityType Name="LOCATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="CITY_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TRAIN_STATION_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LATITUDE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LONGITUDE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TRAIN_JOURNEY" Relationship="Self.TRAIN_JOURNEY_DEPARTURE_LOCATION_ID_FK" FromRole="LOCATIONS" ToRole="TRAIN_JOURNEY" />
+        </EntityType>
+        <EntityType Name="PASSENGER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="EMAIL_ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="999" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DATE_OF_BIRTH" Type="DateTime" Nullable="false" />
+          <Property Name="GENDER" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PHOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="BOOKINGS" Relationship="Self.BOOKINGS_PASSENGER_ID_FK" FromRole="PASSENGERS" ToRole="BOOKINGS" />
+          <NavigationProperty Name="TRAIN_JOURNEY" Relationship="Self.TRAIN_JOURNEY_ARRIVAL_LOCATION_ID_FK" FromRole="PASSENGERS" ToRole="TRAIN_JOURNEY" />
+        </EntityType>
+        <EntityType Name="STAFF">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="EMAIL_ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="999" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DATE_OF_BIRTH" Type="DateTime" Nullable="false" />
+          <Property Name="GENDER" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STAFF_ROLE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PHOTO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TRAIN_JOURNEY_STAFF" Relationship="Self.STAFF_ID_FK" FromRole="STAFF" ToRole="TRAIN_JOURNEY_STAFF" />
+        </EntityType>
+        <EntityType Name="TRAIN_CARRIAGES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="CARRIAGE_ID" Type="Int32" Nullable="false" />
+          <Property Name="TRAIN_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CARRIAGE" Relationship="Self.CARRIAGE_LINK_ID_FK" FromRole="TRAIN_CARRIAGES" ToRole="CARRIAGES" />
+          <NavigationProperty Name="TRAIN" Relationship="Self.TRAIN_LINK_ID_FK" FromRole="TRAIN_CARRIAGES" ToRole="TRAINS" />
+        </EntityType>
+        <EntityType Name="TRAIN_COMPANIES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="COMPANY_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LOGO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CARRIAGES" Relationship="Self.FREIGHT_COMPANY_ID_FK" FromRole="TRAIN_COMPANIES" ToRole="CARRIAGES" />
+          <NavigationProperty Name="TRAINS" Relationship="Self.TRAIN_COMPANY_ID_FK" FromRole="TRAIN_COMPANIES" ToRole="TRAINS" />
+        </EntityType>
+        <EntityType Name="TRAIN_JOURNEY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="JOURNEY_COST" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ARRIVAL_LOCATION_ID" Type="Int32" />
+          <Property Name="DEPARTURE_LOCATION_ID" Type="Int32" />
+          <NavigationProperty Name="BOOKINGS" Relationship="Self.BOOKINGS_JOURNEY_ID_FK" FromRole="TRAIN_JOURNEY" ToRole="BOOKINGS" />
+          <NavigationProperty Name="LOCATION" Relationship="Self.TRAIN_JOURNEY_DEPARTURE_LOCATION_ID_FK" FromRole="TRAIN_JOURNEY" ToRole="LOCATIONS" />
+          <NavigationProperty Name="PASSENGER" Relationship="Self.TRAIN_JOURNEY_ARRIVAL_LOCATION_ID_FK" FromRole="TRAIN_JOURNEY" ToRole="PASSENGERS" />
+          <NavigationProperty Name="TRAIN_JOURNEY_STAFF" Relationship="Self.JOURNEY_ID_FK" FromRole="TRAIN_JOURNEY" ToRole="TRAIN_JOURNEY_STAFF" />
+        </EntityType>
+        <EntityType Name="TRAIN_JOURNEY_STAFF">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="STAFF_ID" Type="Int32" />
+          <Property Name="JOURNEY_ID" Type="Int32" />
+          <NavigationProperty Name="STAFF" Relationship="Self.STAFF_ID_FK" FromRole="TRAIN_JOURNEY_STAFF" ToRole="STAFF" />
+          <NavigationProperty Name="TRAIN_JOURNEY" Relationship="Self.JOURNEY_ID_FK" FromRole="TRAIN_JOURNEY_STAFF" ToRole="TRAIN_JOURNEY" />
+        </EntityType>
+        <EntityType Name="TRAIN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TRAIN_COMPANY_ID" Type="Int32" />
+          <Property Name="TRAIN_TYPE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CARGO_TYPE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TRAIN_CARRIAGES" Relationship="Self.TRAIN_LINK_ID_FK" FromRole="TRAINS" ToRole="TRAIN_CARRIAGES" />
+          <NavigationProperty Name="TRAIN_COMPANIES" Relationship="Self.TRAIN_COMPANY_ID_FK" FromRole="TRAINS" ToRole="TRAIN_COMPANIES" />
+        </EntityType>
+        <Association Name="BOOKINGS_JOURNEY_ID_FK">
+          <End Role="TRAIN_JOURNEY" Type="Self.TRAIN_JOURNEY" Multiplicity="0..1" />
+          <End Role="BOOKINGS" Type="Self.BOOKING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRAIN_JOURNEY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BOOKINGS">
+              <PropertyRef Name="JOURNEY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BOOKINGS_PASSENGER_ID_FK">
+          <End Role="PASSENGERS" Type="Self.PASSENGER" Multiplicity="0..1" />
+          <End Role="BOOKINGS" Type="Self.BOOKING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PASSENGERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BOOKINGS">
+              <PropertyRef Name="PASSENGER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CARRIAGE_LINK_ID_FK">
+          <End Role="CARRIAGES" Type="Self.CARRIAGE" Multiplicity="1" />
+          <End Role="TRAIN_CARRIAGES" Type="Self.TRAIN_CARRIAGES" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CARRIAGES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TRAIN_CARRIAGES">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FREIGHT_COMPANY_ID_FK">
+          <End Role="TRAIN_COMPANIES" Type="Self.TRAIN_COMPANIES" Multiplicity="0..1" />
+          <End Role="CARRIAGES" Type="Self.CARRIAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRAIN_COMPANIES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CARRIAGES">
+              <PropertyRef Name="FREIGHT_COMPANY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TRAIN_JOURNEY_DEPARTURE_LOCATION_ID_FK">
+          <End Role="LOCATIONS" Type="Self.LOCATION" Multiplicity="0..1" />
+          <End Role="TRAIN_JOURNEY" Type="Self.TRAIN_JOURNEY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOCATIONS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TRAIN_JOURNEY">
+              <PropertyRef Name="DEPARTURE_LOCATION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TRAIN_JOURNEY_ARRIVAL_LOCATION_ID_FK">
+          <End Role="PASSENGERS" Type="Self.PASSENGER" Multiplicity="0..1" />
+          <End Role="TRAIN_JOURNEY" Type="Self.TRAIN_JOURNEY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PASSENGERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TRAIN_JOURNEY">
+              <PropertyRef Name="ARRIVAL_LOCATION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STAFF_ID_FK">
+          <End Role="STAFF" Type="Self.STAFF" Multiplicity="0..1" />
+          <End Role="TRAIN_JOURNEY_STAFF" Type="Self.TRAIN_JOURNEY_STAFF" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STAFF">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TRAIN_JOURNEY_STAFF">
+              <PropertyRef Name="STAFF_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TRAIN_LINK_ID_FK">
+          <End Role="TRAINS" Type="Self.TRAIN" Multiplicity="1" />
+          <End Role="TRAIN_CARRIAGES" Type="Self.TRAIN_CARRIAGES" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TRAINS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TRAIN_CARRIAGES">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TRAIN_COMPANY_ID_FK">
+          <End Role="TRAIN_COMPANIES" Type="Self.TRAIN_COMPANIES" Multiplicity="0..1" />
+          <End Role="TRAINS" Type="Self.TRAIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRAIN_COMPANIES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TRAINS">
+              <PropertyRef Name="TRAIN_COMPANY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="JOURNEY_ID_FK">
+          <End Role="TRAIN_JOURNEY" Type="Self.TRAIN_JOURNEY" Multiplicity="0..1" />
+          <End Role="TRAIN_JOURNEY_STAFF" Type="Self.TRAIN_JOURNEY_STAFF" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRAIN_JOURNEY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TRAIN_JOURNEY_STAFF">
+              <PropertyRef Name="JOURNEY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADMINISTRATORS" EntityType="Self.ADMINISTRATOR" />
+          <EntitySet Name="API_TOKENS" EntityType="Self.API_TOKENS" />
+          <EntitySet Name="BOOKINGS" EntityType="Self.BOOKING" />
+          <EntitySet Name="CARRIAGES" EntityType="Self.CARRIAGE" />
+          <EntitySet Name="LOCATIONS" EntityType="Self.LOCATION" />
+          <EntitySet Name="PASSENGERS" EntityType="Self.PASSENGER" />
+          <EntitySet Name="STAFFs" EntityType="Self.STAFF" />
+          <EntitySet Name="TRAIN_CARRIAGES" EntityType="Self.TRAIN_CARRIAGES" />
+          <EntitySet Name="TRAIN_COMPANIES" EntityType="Self.TRAIN_COMPANIES" />
+          <EntitySet Name="TRAIN_JOURNEY" EntityType="Self.TRAIN_JOURNEY" />
+          <EntitySet Name="TRAIN_JOURNEY_STAFF" EntityType="Self.TRAIN_JOURNEY_STAFF" />
+          <EntitySet Name="TRAINS" EntityType="Self.TRAIN" />
+          <AssociationSet Name="BOOKINGS_JOURNEY_ID_FK" Association="Self.BOOKINGS_JOURNEY_ID_FK">
+            <End Role="TRAIN_JOURNEY" EntitySet="TRAIN_JOURNEY" />
+            <End Role="BOOKINGS" EntitySet="BOOKINGS" />
+          </AssociationSet>
+          <AssociationSet Name="BOOKINGS_PASSENGER_ID_FK" Association="Self.BOOKINGS_PASSENGER_ID_FK">
+            <End Role="PASSENGERS" EntitySet="PASSENGERS" />
+            <End Role="BOOKINGS" EntitySet="BOOKINGS" />
+          </AssociationSet>
+          <AssociationSet Name="CARRIAGE_LINK_ID_FK" Association="Self.CARRIAGE_LINK_ID_FK">
+            <End Role="CARRIAGES" EntitySet="CARRIAGES" />
+            <End Role="TRAIN_CARRIAGES" EntitySet="TRAIN_CARRIAGES" />
+          </AssociationSet>
+          <AssociationSet Name="FREIGHT_COMPANY_ID_FK" Association="Self.FREIGHT_COMPANY_ID_FK">
+            <End Role="TRAIN_COMPANIES" EntitySet="TRAIN_COMPANIES" />
+            <End Role="CARRIAGES" EntitySet="CARRIAGES" />
+          </AssociationSet>
+          <AssociationSet Name="TRAIN_JOURNEY_DEPARTURE_LOCATION_ID_FK" Association="Self.TRAIN_JOURNEY_DEPARTURE_LOCATION_ID_FK">
+            <End Role="LOCATIONS" EntitySet="LOCATIONS" />
+            <End Role="TRAIN_JOURNEY" EntitySet="TRAIN_JOURNEY" />
+          </AssociationSet>
+          <AssociationSet Name="TRAIN_JOURNEY_ARRIVAL_LOCATION_ID_FK" Association="Self.TRAIN_JOURNEY_ARRIVAL_LOCATION_ID_FK">
+            <End Role="PASSENGERS" EntitySet="PASSENGERS" />
+            <End Role="TRAIN_JOURNEY" EntitySet="TRAIN_JOURNEY" />
+          </AssociationSet>
+          <AssociationSet Name="STAFF_ID_FK" Association="Self.STAFF_ID_FK">
+            <End Role="STAFF" EntitySet="STAFFs" />
+            <End Role="TRAIN_JOURNEY_STAFF" EntitySet="TRAIN_JOURNEY_STAFF" />
+          </AssociationSet>
+          <AssociationSet Name="TRAIN_LINK_ID_FK" Association="Self.TRAIN_LINK_ID_FK">
+            <End Role="TRAINS" EntitySet="TRAINS" />
+            <End Role="TRAIN_CARRIAGES" EntitySet="TRAIN_CARRIAGES" />
+          </AssociationSet>
+          <AssociationSet Name="TRAIN_COMPANY_ID_FK" Association="Self.TRAIN_COMPANY_ID_FK">
+            <End Role="TRAIN_COMPANIES" EntitySet="TRAIN_COMPANIES" />
+            <End Role="TRAINS" EntitySet="TRAINS" />
+          </AssociationSet>
+          <AssociationSet Name="JOURNEY_ID_FK" Association="Self.JOURNEY_ID_FK">
+            <End Role="TRAIN_JOURNEY" EntitySet="TRAIN_JOURNEY" />
+            <End Role="TRAIN_JOURNEY_STAFF" EntitySet="TRAIN_JOURNEY_STAFF" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities2">
+          <EntitySetMapping Name="ADMINISTRATORS">
+            <EntityTypeMapping TypeName="Model.ADMINISTRATOR">
+              <MappingFragment StoreEntitySet="ADMINISTRATORS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EMAIL_ADDRESS" ColumnName="EMAIL_ADDRESS" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="DATE_OF_BIRTH" ColumnName="DATE_OF_BIRTH" />
+                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="API_TOKENS">
+            <EntityTypeMapping TypeName="Model.API_TOKENS">
+              <MappingFragment StoreEntitySet="API_TOKENS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TOKEN_VALUE" ColumnName="TOKEN_VALUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BOOKINGS">
+            <EntityTypeMapping TypeName="Model.BOOKING">
+              <MappingFragment StoreEntitySet="BOOKINGS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PASSENGER_ID" ColumnName="PASSENGER_ID" />
+                <ScalarProperty Name="JOURNEY_ID" ColumnName="JOURNEY_ID" />
+                <ScalarProperty Name="BOOKING_TYPE" ColumnName="BOOKING_TYPE" />
+                <ScalarProperty Name="SEAT_NUMBER" ColumnName="SEAT_NUMBER" />
+                <ScalarProperty Name="SEAT_PREFERENCE" ColumnName="SEAT_PREFERENCE" />
+                <ScalarProperty Name="DEPARTURE_DATE_TIME" ColumnName="DEPARTURE_DATE_TIME" />
+                <ScalarProperty Name="DEPARTURE_PLATFORM" ColumnName="DEPARTURE_PLATFORM" />
+                <ScalarProperty Name="ARRIVAL_DATE_TIME" ColumnName="ARRIVAL_DATE_TIME" />
+                <ScalarProperty Name="ARRIVAL_PLATFORM" ColumnName="ARRIVAL_PLATFORM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CARRIAGES">
+            <EntityTypeMapping TypeName="Model.CARRIAGE">
+              <MappingFragment StoreEntitySet="CARRIAGES">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CARRIAGE_CLASSIFICATION" ColumnName="CARRIAGE_CLASSIFICATION" />
+                <ScalarProperty Name="FREIGHT_COMPANY_ID" ColumnName="FREIGHT_COMPANY_ID" />
+                <ScalarProperty Name="TOTAL_NUMBER_OF_SEATS" ColumnName="TOTAL_NUMBER_OF_SEATS" />
+                <ScalarProperty Name="NUMBER_OF_AVAILABLE_SEATS" ColumnName="NUMBER_OF_AVAILABLE_SEATS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOCATIONS">
+            <EntityTypeMapping TypeName="Model.LOCATION">
+              <MappingFragment StoreEntitySet="LOCATIONS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CITY_NAME" ColumnName="CITY_NAME" />
+                <ScalarProperty Name="TRAIN_STATION_NAME" ColumnName="TRAIN_STATION_NAME" />
+                <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+                <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PASSENGERS">
+            <EntityTypeMapping TypeName="Model.PASSENGER">
+              <MappingFragment StoreEntitySet="PASSENGERS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EMAIL_ADDRESS" ColumnName="EMAIL_ADDRESS" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="DATE_OF_BIRTH" ColumnName="DATE_OF_BIRTH" />
+                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+                <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STAFFs">
+            <EntityTypeMapping TypeName="Model.STAFF">
+              <MappingFragment StoreEntitySet="STAFF">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EMAIL_ADDRESS" ColumnName="EMAIL_ADDRESS" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="DATE_OF_BIRTH" ColumnName="DATE_OF_BIRTH" />
+                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+                <ScalarProperty Name="STAFF_ROLE" ColumnName="STAFF_ROLE" />
+                <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRAIN_CARRIAGES">
+            <EntityTypeMapping TypeName="Model.TRAIN_CARRIAGES">
+              <MappingFragment StoreEntitySet="TRAIN_CARRIAGES">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CARRIAGE_ID" ColumnName="CARRIAGE_ID" />
+                <ScalarProperty Name="TRAIN_ID" ColumnName="TRAIN_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRAIN_COMPANIES">
+            <EntityTypeMapping TypeName="Model.TRAIN_COMPANIES">
+              <MappingFragment StoreEntitySet="TRAIN_COMPANIES">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="COMPANY_NAME" ColumnName="COMPANY_NAME" />
+                <ScalarProperty Name="LOGO" ColumnName="LOGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRAIN_JOURNEY">
+            <EntityTypeMapping TypeName="Model.TRAIN_JOURNEY">
+              <MappingFragment StoreEntitySet="TRAIN_JOURNEY">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="JOURNEY_COST" ColumnName="JOURNEY_COST" />
+                <ScalarProperty Name="ARRIVAL_LOCATION_ID" ColumnName="ARRIVAL_LOCATION_ID" />
+                <ScalarProperty Name="DEPARTURE_LOCATION_ID" ColumnName="DEPARTURE_LOCATION_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRAIN_JOURNEY_STAFF">
+            <EntityTypeMapping TypeName="Model.TRAIN_JOURNEY_STAFF">
+              <MappingFragment StoreEntitySet="TRAIN_JOURNEY_STAFF">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="STAFF_ID" ColumnName="STAFF_ID" />
+                <ScalarProperty Name="JOURNEY_ID" ColumnName="JOURNEY_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRAINS">
+            <EntityTypeMapping TypeName="Model.TRAIN">
+              <MappingFragment StoreEntitySet="TRAINS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TRAIN_COMPANY_ID" ColumnName="TRAIN_COMPANY_ID" />
+                <ScalarProperty Name="TRAIN_TYPE" ColumnName="TRAIN_TYPE" />
+                <ScalarProperty Name="CARGO_TYPE" ColumnName="CARGO_TYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

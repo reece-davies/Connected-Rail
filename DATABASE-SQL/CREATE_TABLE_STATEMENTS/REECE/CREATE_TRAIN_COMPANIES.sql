@@ -1,0 +1,8 @@
+CREATE TABLE TRAIN_COMPANIES
+(
+
+id number(10) DEFAULT TRAIN_COMPANY_SEQUENCE.nextval NOT NULL
+CONSTRAINT train_company_id_pk PRIMARY KEY,
+
+company_name varchar(255) NOT NULL
+);

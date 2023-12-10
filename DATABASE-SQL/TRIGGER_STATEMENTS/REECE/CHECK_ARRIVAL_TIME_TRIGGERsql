@@ -1,0 +1,11 @@
+CREATE OR REPLACE TRIGGER check_arrival_time_trigger
+BEFORE UPDATE OF arrival_datetime ON BOOKINGS FOR EACH ROW
+BEGIN
+	IF :LOCATION.train_station_name == LOCATION.train_station_name THEN					            /*SAME STATION*/
+		IF :BOOKING.arrival_platform == BOOKING.arrival_platform THEN					            /*SAME PLATFORM*/
+			IF :BOOKING.arrival_date_time == (BOOKING.arrival_date_time + INTERVAL 5 MINUTE THEN	/*SAME TIME WITHIN 5 MINS*/
+				UPDATE BOOKING.arrival_date_time
+				SET arrival_date_time = arrival_date_time + INTERVAL 5 MINUTE			            /*INCREASE TIME*/
+
+
+END;

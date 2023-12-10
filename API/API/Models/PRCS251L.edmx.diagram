@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8e30b495fe184ac09955cff7583d774f" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.ADMINISTRATOR" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.API_TOKENS" Width="1.5" PointX="2.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.BOOKING" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CARRIAGE" Width="1.5" PointX="8" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.LOCATION" Width="1.5" PointX="3.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PASSENGER" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.STAFF" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TRAIN_CARRIAGES" Width="1.5" PointX="10.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TRAIN_COMPANIES" Width="1.5" PointX="5.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TRAIN_JOURNEY" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TRAIN_JOURNEY_STAFF" Width="1.5" PointX="8.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TRAIN" Width="1.5" PointX="8" PointY="12" IsExpanded="true" />
+        <AssociationConnector Association="Model.BOOKINGS_JOURNEY_ID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.BOOKINGS_PASSENGER_ID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CARRIAGE_LINK_ID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FREIGHT_COMPANY_ID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.TRAIN_JOURNEY_DEPARTURE_LOCATION_ID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.TRAIN_JOURNEY_ARRIVAL_LOCATION_ID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.STAFF_ID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.TRAIN_LINK_ID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.TRAIN_COMPANY_ID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.JOURNEY_ID_FK" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
